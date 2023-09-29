@@ -2,7 +2,7 @@
 # This script is created to compare the sensitivity of the 98th and 99th percentiles
 # of a log-normal distribution when sigma is changing
 ##############################################################################
-
+library(renv)
 #=============================================================================#
 #Sensitivity of the 98th percentiles
 #=============================================================================#
