@@ -145,9 +145,9 @@ save(param_adjusted_gaussian_rf, file = "data-raw/RObject/param_adjusted_gaussia
 # STEP 2: Create a graph to display the bias correction impact
 ##############################################################################
 
-load("data-raw/RObject/param_unadjusted_gaussian_rf.RData")
-load("data-raw/RObject/param_actual_gaussian_rf.RData")
-load("data-raw/RObject/param_adjusted_gaussian_rf.RData")
+base::load("data-raw/RObject/param_unadjusted_gaussian_rf.RData")
+base::load("data-raw/RObject/param_actual_gaussian_rf.RData")
+base::load("data-raw/RObject/param_adjusted_gaussian_rf.RData")
 
 
 
@@ -210,10 +210,10 @@ data_long <- comb_para_gaussian %>%
 
 data_long <- data_long %>%
   mutate(method = case_when(
-    Measure == "ratio_adjust_mean" ~ "Adjusted Parameters",
-    Measure == "ratio_adjust_sd" ~ "Adjusted Parameters",
-    Measure == "ratio_unadjust_mean" ~ "Unadjusted Parameters",
-    Measure == "ratio_unadjust_sd" ~ "Unadjusted Parameters"
+    Measure == "ratio_adjust_mean" ~ "Adjusted",
+    Measure == "ratio_adjust_sd" ~ "Adjusted",
+    Measure == "ratio_unadjust_mean" ~ "Unadjusted",
+    Measure == "ratio_unadjust_sd" ~ "Unadjusted"
   ))
 
 
@@ -237,7 +237,7 @@ levels(data_long$method)
 
 # re-order factor levels
 data_long$method <- factor(data_long$method,
-                         levels = c("Unadjusted Parameters", "Adjusted Parameters")
+                         levels = c("Unadjusted", "Adjusted")
 )
 
 

@@ -12,12 +12,12 @@
 library(tidyverse)
 library(renv)
 
-load("data-raw/Robject/data_long_adjusted.RData")
-load("data-raw/Robject/data_long_unadjusted.RData")
-load("data-raw/RObject/loc_scale_data_unadjusted.RData")
-load("data-raw/RObject/loc_scale_data_adjusted.RData")
-load("data-raw/RObject/shape_data_unadjusted.RData")
-load("data-raw/RObject/shape_data_adjusted.RData")
+base::load("data-raw/Robject/data_long_adjusted.RData")
+base::load("data-raw/Robject/data_long_unadjusted.RData")
+base::load("data-raw/RObject/loc_scale_data_unadjusted.RData")
+base::load("data-raw/RObject/loc_scale_data_adjusted.RData")
+base::load("data-raw/RObject/shape_data_unadjusted.RData")
+base::load("data-raw/RObject/shape_data_adjusted.RData")
 
 
 ##############################################################################

@@ -11,10 +11,10 @@ library(tidyverse)
 # load("data-raw/RObject/direct_load_para_lnorm.RData")
 
 
-load("data-raw/RObject/test_direct_lnorm_para.RData")
-load("data-raw/RObject/test_svr_lnorm_para.RData")
-load("data-raw/RObject/test_gbm_lnorm_para.RData")
-load("data-raw/RObject/test_rf_lnorm_para.RData")
+base::load("data-raw/RObject/test_direct_lnorm_para.RData")
+base::load("data-raw/RObject/test_svr_lnorm_para.RData")
+base::load("data-raw/RObject/test_gbm_lnorm_para.RData")
+base::load("data-raw/RObject/test_rf_lnorm_para.RData")
 
 # append station id
 ID <- rownames(test_svr_lnorm_para)

@@ -18,21 +18,21 @@ library(renv)
 # =============================================================================#
 # load data
 # =============================================================================#
-load("data-raw/RObject/param_unadjusted_gaussian_10k.RData")
-load("data-raw/RObject/param_actual_gaussian_10k.RData")
-load("data-raw/RObject/param_adjusted_gaussian_10k.RData")
+base::load("data-raw/RObject/param_unadjusted_gaussian_10k.RData")
+base::load("data-raw/RObject/param_actual_gaussian_10k.RData")
+base::load("data-raw/RObject/param_adjusted_gaussian_10k.RData")
 
-load("data-raw/RObject/param_unadjusted_runif_10k.RData")
-load("data-raw/RObject/param_actual_runif_10k.RData")
-load("data-raw/RObject/param_adjusted_runif_10k.RData")
+base::load("data-raw/RObject/param_unadjusted_runif_10k.RData")
+base::load("data-raw/RObject/param_actual_runif_10k.RData")
+base::load("data-raw/RObject/param_adjusted_runif_10k.RData")
 
-load("data-raw/RObject/param_unadjusted_gaussian_1k.RData")
-load("data-raw/RObject/param_actual_gaussian_1k.RData")
-load("data-raw/RObject/param_adjusted_gaussian_1k.RData")
+base::load("data-raw/RObject/param_unadjusted_gaussian_1k.RData")
+base::load("data-raw/RObject/param_actual_gaussian_1k.RData")
+base::load("data-raw/RObject/param_adjusted_gaussian_1k.RData")
 
-load("data-raw/RObject/param_unadjusted_runif_1k.RData")
-load("data-raw/RObject/param_actual_runif_1k.RData")
-load("data-raw/RObject/param_adjusted_runif_1k.RData")
+base::load("data-raw/RObject/param_unadjusted_runif_1k.RData")
+base::load("data-raw/RObject/param_actual_runif_1k.RData")
+base::load("data-raw/RObject/param_adjusted_runif_1k.RData")
 
 
 
@@ -103,10 +103,10 @@ data_long_g_10k <- comb_para_gaussian_10k %>%
 
 data_long_g_10k <- data_long_g_10k %>%
   mutate(Method = case_when(
-    Measure == "ratio_unadjust_mean" ~ "Unadjusted Parameters",
-    Measure == "ratio_unadjust_sd" ~ "Unadjusted Parameters",
-    Measure == "ratio_adjust_mean" ~ "Adjusted Parameters",
-    Measure == "ratio_adjust_sd" ~ "Adjusted Parameters",
+    Measure == "ratio_unadjust_mean" ~ "Unadjusted",
+    Measure == "ratio_unadjust_sd" ~ "Unadjusted",
+    Measure == "ratio_adjust_mean" ~ "Adjusted",
+    Measure == "ratio_adjust_sd" ~ "Adjusted",
   ))
 
 
@@ -189,10 +189,10 @@ data_long_u_10k <- comb_para_runif_10k %>%
 
 data_long_u_10k <- data_long_u_10k %>%
   mutate(Method = case_when(
-    Measure == "ratio_adjust_mean" ~ "Adjusted Parameters",
-    Measure == "ratio_adjust_sd" ~ "Adjusted Parameters",
-    Measure == "ratio_unadjust_mean" ~ "Unadjusted Parameters",
-    Measure == "ratio_unadjust_sd" ~ "Unadjusted Parameters"
+    Measure == "ratio_adjust_mean" ~ "Adjusted",
+    Measure == "ratio_adjust_sd" ~ "Adjusted",
+    Measure == "ratio_unadjust_mean" ~ "Unadjusted",
+    Measure == "ratio_unadjust_sd" ~ "Unadjusted"
   ))
 
 
@@ -281,10 +281,10 @@ data_long_g_1k <- comb_para_gaussian_1k %>%
 
 data_long_g_1k <- data_long_g_1k %>%
   mutate(Method = case_when(
-    Measure == "ratio_unadjust_mean" ~ "Unadjusted Parameters",
-    Measure == "ratio_unadjust_sd" ~ "Unadjusted Parameters",
-    Measure == "ratio_adjust_mean" ~ "Adjusted Parameters",
-    Measure == "ratio_adjust_sd" ~ "Adjusted Parameters",
+    Measure == "ratio_unadjust_mean" ~ "Unadjusted",
+    Measure == "ratio_unadjust_sd" ~ "Unadjusted",
+    Measure == "ratio_adjust_mean" ~ "Adjusted",
+    Measure == "ratio_adjust_sd" ~ "Adjusted",
   ))
 
 
@@ -367,10 +367,10 @@ data_long_u_1k <- comb_para_runif_1k %>%
 
 data_long_u_1k <- data_long_u_1k %>%
   mutate(Method = case_when(
-    Measure == "ratio_adjust_mean" ~ "Adjusted Parameters",
-    Measure == "ratio_adjust_sd" ~ "Adjusted Parameters",
-    Measure == "ratio_unadjust_mean" ~ "Unadjusted Parameters",
-    Measure == "ratio_unadjust_sd" ~ "Unadjusted Parameters"
+    Measure == "ratio_adjust_mean" ~ "Adjusted",
+    Measure == "ratio_adjust_sd" ~ "Adjusted",
+    Measure == "ratio_unadjust_mean" ~ "Unadjusted",
+    Measure == "ratio_unadjust_sd" ~ "Unadjusted"
   ))
 
 
@@ -406,7 +406,7 @@ levels(comb_df$size)
 
 # re-order factor levels
 comb_df$Method <- factor(comb_df$Method,
-  levels = c("Unadjusted Parameters", "Adjusted Parameters")
+  levels = c("Unadjusted", "Adjusted")
 )
 
 comb_df$size <- factor(comb_df$size,
@@ -422,8 +422,9 @@ ggplot(comb_df, aes(x = Measure, y = Ratio, fill = Model)) +
   ylim(c(0.85, 1.05)) +
   ggtitle("Boxplot comparing the relative parameter ratio for the Gaussian model") +
   scale_x_discrete(labels = c("mean" = expression(mu), "sd" = expression(sigma))) +
+  xlab(" " ) + 
   theme(
-    legend.position = c(0.75, 0.1),
+    legend.position = c(0.5, -0.112),
     legend.direction = "horizontal",
     legend.title = element_text(size = 45),
     legend.text = element_text(size = 40),

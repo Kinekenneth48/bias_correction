@@ -10,14 +10,13 @@
 # =============================================================================#
 # load libraries
 # =============================================================================#
-library(renv)
 library(caret)
 library(fitdistrplus)
 library(distfixer)
 library(ranger)
 library(tidyverse)
 
-
+set.seed(23553)
 ##############################################################################
 # STEP 1: Generate 200 different data set and apply the bootstrap method
 ##############################################################################
@@ -157,9 +156,9 @@ save(param_adjusted_runif_1k, file = "data-raw/RObject/param_adjusted_runif_1k.R
 # STEP 2: Create a graph to display the bias correction impact
 ##############################################################################
 
-load("data-raw/RObject/param_unadjusted_runif_1k.RData")
-load("data-raw/RObject/param_actual_runif_1k.RData")
-load("data-raw/RObject/param_adjusted_runif_1k.RData")
+base::load("data-raw/RObject/param_unadjusted_runif_1k.RData")
+base::load("data-raw/RObject/param_actual_runif_1k.RData")
+base::load("data-raw/RObject/param_adjusted_runif_1k.RData")
 
 
 # convert to data frame

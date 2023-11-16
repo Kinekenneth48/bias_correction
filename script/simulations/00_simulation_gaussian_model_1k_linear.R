@@ -10,7 +10,6 @@
 # =============================================================================#
 # load libraries
 # =============================================================================#
-library(renv)
 library(caret)
 library(fitdistrplus)
 library(distfixer)
@@ -18,7 +17,7 @@ library(ranger)
 library(tidyverse)
 source("R/simulate_gaussian_data.R")
 
-
+set.seed(34556)
 
 ##############################################################################
 # STEP 1: Generate 200 different data set and apply the bootstrap method
@@ -140,9 +139,9 @@ save(param_adjusted_gaussian_1k, file = "data-raw/RObject/param_adjusted_gaussia
 # STEP 2: Create a graph to display the bias correction impact
 ##############################################################################
 
-load("data-raw/RObject/param_unadjusted_gaussian_1k.RData")
-load("data-raw/RObject/param_actual_gaussian_1k.RData")
-load("data-raw/RObject/param_adjusted_gaussian_1k.RData")
+base::load("data-raw/RObject/param_unadjusted_gaussian_1k.RData")
+base::load("data-raw/RObject/param_actual_gaussian_1k.RData")
+base::load("data-raw/RObject/param_adjusted_gaussian_1k.RData")
 
 
 
